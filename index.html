@@ -47,7 +47,7 @@ nav ul li a:hover{color:#28a745;}
 .controls button {background: rgba(0,0,0,0.5); border:none; padding:12px 18px; color:#fff; cursor:pointer; font-size:18px; border-radius:5px; transition:background 0.3s;}
 .controls button:hover {background: rgba(0,0,0,0.7);}
 .form-control, .form-select, textarea {transition:all 0.3s ease;}
-.form-control:focus, .form-select:focus, textarea:focus {transform:scale(1.02); border-color:#28a745; box-shadow:0 0 10px rgba(40,167,69,0.2);}
+.form-control:focus, .form-select:focus, textarea:focus { transform:scale(1.02); border-color:#28a745; box-shadow:0 0 10px rgba(40,167,69,0.2)!important;}
 .form-row-equal {display:flex; flex-wrap:wrap; gap:1rem;}
 .form-col {flex:1; display:flex; flex-direction:column; justify-content:flex-start;}
 section {opacity:0; transform:translateY(20px); transition: all 0.8s ease-in-out; }
@@ -110,6 +110,31 @@ ease;
     font-weight: 300;
     margin: 0;
 }
+.my-select {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 3px;
+  background: white;
+  -webkit-appearance: none; /* optional - remove native arrow in WebKit if customizing */
+  appearance: none;
+}
+
+/* on hover/focus/keyboard focus */
+.my-select:hover,
+.my-select:focus,
+.my-select:active,
+.my-select:focus-visible {
+  outline: none; /* remove default outline */
+  border-color: #28a745;              /* green border */
+  box-shadow: 0 0 0 4px rgba(40,167,69,0.12); /* green glow */
+}
+
+/* sometimes you need to increase specificity if using a framework */
+select.my-select:focus {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 4px rgba(40,167,69,0.12) !important;
+  outline: none !important;
+}
 
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -119,7 +144,7 @@ ease;
 <div class="logo"><img src="images/logo.png" height="60px"></div>
 <nav>
 <ul>
-<li><a href="mavunoplus.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
 <li><a href="#aboutSection">About</a></li>
 <li><a href="#TheServices">Services</a></li>
 <li><a href="#FeaturedCategories">Categories</a></li>
@@ -167,28 +192,42 @@ ease;
 <div class="form-col">
 <label class="form-label mt-3">Select Service</label>
 <select class="form-select">
-<option selected disabled>Choose a service</option>
-<option>Delivery</option>
-<option>Pickup</option>
-<option>Courier</option>
+<option selected disabled hidden>Choose a service</option>
+<option>Pick up from sender and deliver to receiver</option>
+<option>Deliver from your location to receiver</option>
+<option>Buy items and deliver to receiver</option>
 </select>
 <label class="form-label mt-3">Sender Name</label>
 <input type="text" class="form-control" placeholder="Enter sender name">
 <label class="form-label mt-3">Sender Mobile Number</label>
 <input type="text" class="form-control" placeholder="Enter sender mobile">
-<label class="form-label mt-3">Sender Address</label>
-<input type="text" class="form-control" placeholder="Enter sender address">
+<label class="form-label mt-3">Sender Region</label>
+<input type="text" class="form-control" placeholder="Enter sender Region">
+<label class="form-label mt-3">Sender District</label>
+<input type="text" class="form-control" placeholder="Enter sender District">
+<label class="form-label mt-3">Sender Ward</label>
+<input type="text" class="form-control" placeholder="Enter sender Ward">
+<label class="form-label mt-3">Sender House Number</label>
+<input type="text" class="form-control" placeholder="Enter sender House Number">
 </div>
 <div class="form-col">
 <label class="form-label mt-3">Receiver Name</label>
 <input type="text" class="form-control" placeholder="Enter receiver name">
 <label class="form-label mt-3">Receiver Mobile Number</label>
 <input type="text" class="form-control" placeholder="Enter receiver mobile">
-<label class="form-label mt-3">Receiver Address</label>
-<input type="text" class="form-control" placeholder="Enter receiver address">
+<label class="form-label mt-3">Receiver Region</label>
+<input type="text" class="form-control" placeholder="Enter receiver Region">
+<label class="form-label mt-3">Receiver District</label>
+<input type="text" class="form-control" placeholder="Enter receiver District">
+<label class="form-label mt-3">Receiver Ward</label>
+<input type="text" class="form-control" placeholder="Enter receiver Ward">
+<label class="form-label mt-3">Receiver House Number</label>
+<input type="text" class="form-control" placeholder="Enter receiver House Number">
 <label class="form-label mt-3">List Items You Want</label>
 <textarea class="form-control" rows="5" placeholder="Enter items"></textarea>
+
 </div>
+
 </div>
 <div class="text-center mt-4">
 <button type="submit" class="btn btn-primary px-5 py-2">Submit</button>
@@ -344,35 +383,31 @@ ease;
 
     <div class="row justify-content-center gap-4 mt-4">
 
-      <div class="col-md-3 col-6">
-        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328e1210?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+      <div class="col-md-2 col-6">
+        <img src="images/Leonard2.jpg" class="rounded-circle mb-2" style="width:150px; height:150px; object-fit:cover;">
         <h5 class="fw-semibold">Leonard Osward</h5>
         <p class="text-muted small"> our visionary lead, oversees operations and strategic growth, ensuring that MavunoPlus continues to connect people, products, and opportunities across Tanzania.</p>
       </div>
 
-      <div class="col-md-3 col-6">
-        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+      <div class="col-md-2 col-6">
+        <img src="images/Joyce2.jpg" class="rounded-circle mb-2" style="width:150px; height:150px; object-fit:cover;">
         <h5 class="fw-semibold"> Joyce Mwakalinga</h5>
         <p class="text-muted small"> our Marketing Lead, drives brand communication and customer engagement, making MavunoPlus a trusted name in delivery and agribusiness.</p>
       </div>
 
-      <div class="col-md-3 col-6">
-        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+      <div class="col-md-2 col-6">
+        <img src="images/jimmy.jpg" class="rounded-circle mb-2" style="width:150px; height:150px; object-fit:cover;">
         <h5 class="fw-semibold"> Jimmy Boaz</h5>
         <p class="text-muted small"> our IT Specialist, ensures smooth digital operations, system reliability, and user-friendly experiences.</p>
       </div>
 
-      <div class="col-md-3 col-6">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+      <div class="col-md-2 col-6">
+        <img src="images/DadaPendo1.jpg" class="rounded-circle mb-2" style="width:150px; height:150px; object-fit:cover;">
         <h5 class="fw-semibold">Upendo Jacob</h5>
         <p class="text-muted small">our Accountant, manages finances with transparency and precision,ensuring sustainability and accountability in everything we do</p>
       </div>
 
-      <div class="col-md-3 col-6">
-        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
-        <h5 class="fw-semibold">David Wilson</h5>
-        <p class="text-muted small">Field Supervisor</p>
-      </div>
+   
 
     </div>
     <p> Behind MavunoPlus is a passionate team of innovators, agripreneurs, and community builders committed to transforming how Tanzania shops and 
@@ -430,12 +465,12 @@ document.querySelectorAll('section').forEach(s=>observer.observe(s));
         <h4 class="fw-bold">Social Media <span style="display:inline-block; width:20px; height:3px; background:#fff; vertical-align: middle; margin-left:10px;"></span></h4>
         <p>MavunoPlus</p>
         <div class="d-flex gap-3 justify-content-center justify-content-md-start">
-          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-youtube" style="color:#fff;"></i></span>
-          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-google" style="color:#fff;"></i></span>
-          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-facebook" style="color:#fff;"></i></span>
+          <!-- <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-youtube" style="color:#fff;"></i></span> -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mavunoplus.tz@gmail.com&su=Your+Subject&body=Your+message+here" target="_blank"><span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-google" style="color:#fff;"></i></span></a>
+          <!-- <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-facebook" style="color:#fff;"></i></span>
           <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-dribbble" style="color:#fff;"></i></span>
-          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-twitter" style="color:#fff;"></i></span>
-          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-instagram" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-twitter" style="color:#fff;"></i></span> -->
+         <a href="https://www.instagram.com/mavunoplus?igsh=YnNiZ3Z1NXRsZ3N2"><span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-instagram" style="color:#fff;"></i></span></a>
         </div>
       </div>
 
