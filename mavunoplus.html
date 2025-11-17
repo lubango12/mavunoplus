@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#90EE90">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="images/mavunologo.png">
+<link rel="icon" type="image/png" sizes="64x64" href="images/mavunologo.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/mavunologo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/mavunologo.png">
+
+ <link rel="icon" type="image/png" href="images/mavunologo.png">
+    <title>Mavuno +</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<style>
+body {background:#f5f5f5; font-family:Arial, sans-serif;}
+header {width:100%; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:15px 5%; position:sticky; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:fixed;}
+.logo {font-size:22px; font-weight:bold; color:#333; margin-top: 1rem;}
+nav ul {display:flex; list-style:none; gap:25px;}
+ol,
+ul,
+dl {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem;
+}
+nav ul li:hover {
+  transform: translateY(3px); /* moves the whole item down */
+}
+nav ul li a {text-decoration:none; color:#333; font-weight:500; transition:color 0.3s;}
+nav ul li a:hover{color:#28a745;}
+
+.search-box input {padding:7px 12px; border:1px solid #8bc28b !important; border-radius:5px; transition:all 0.3s;}
+.search-box input:focus {border-color:#28a745 !important; box-shadow:0 0 8px rgba(40,167,69,0.3);}
+.slider {width:100%; height:500px; overflow:hidden; position:relative; margin-top:8px;}
+.slides {display:flex;}
+.slides img {width:100%; height:1000px; object-fit:cover; flex-shrink:0;}
+.controls {position:absolute; top:50%; left:0; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%);}
+.controls button {background: rgba(0,0,0,0.5); border:none; padding:12px 18px; color:#fff; cursor:pointer; font-size:18px; border-radius:5px; transition:background 0.3s;}
+.controls button:hover {background: rgba(0,0,0,0.7);}
+.form-control, .form-select, textarea {transition:all 0.3s ease;}
+.form-control:focus, .form-select:focus, textarea:focus {transform:scale(1.02); border-color:#28a745; box-shadow:0 0 10px rgba(40,167,69,0.2);}
+.form-row-equal {display:flex; flex-wrap:wrap; gap:1rem;}
+.form-col {flex:1; display:flex; flex-direction:column; justify-content:flex-start;}
+section {opacity:0; transform:translateY(20px); transition: all 0.8s ease-in-out; }
+section.in-view {opacity:1; transform:translateY(0);}
+@media (max-width:768px){nav ul{display:none;} .form-row-equal{flex-direction:column;}}
+.about-img {width:100%; max-height:350px; object-fit:cover; border-radius:10px;}
+.about-content {display:flex; flex-wrap:wrap; align-items:center; gap:30px;}
+.about-text {flex:1; min-width:300px;}
+.btn-primary {background-color:#28a745; border-color:#28a745;}
+.btn-primary:hover {background-color:#218838; border-color:#1e7e34;}
+.why-slide {width:100%; height:250px; overflow:hidden; position:relative; margin-top:20px;}
+.why-slides {display:flex;}
+.why-slides img {width:100%; height:250px; object-fit:cover; flex-shrink:0; margin-right:10px; border-radius:8px;}
+.why-controls {position:absolute; top:50%; left:0; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%);}
+.why-controls button {background: rgba(0,0,0,0.5); border:none; padding:8px 12px; color:#fff; cursor:pointer; font-size:16px; border-radius:5px; transition:background 0.3s;}
+.why-controls button:hover {background: rgba(0,0,0,0.7);}
+.why-text {margin-bottom:10px; font-size:16px; color:#555;}
+.ourTeam {margin-bottom: 0 !important;padding-bottom: 0 !important;}
+.footer-section{ margin-top: 0 !important; padding-top: 0 !important;}
+.categories{
+   .category {
+    background: #fceeea;
+    border-radius: 25px;
+    padding: 20px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s 
+ease;
+}
+}
+.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #7ba377;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.hero-banner {
+    background-color: #8CB988; /* Light green similar to your image */
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.hero-banner h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.hero-banner p {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+<header class="animate__animated animate__fadeInDown">
+<div class="logo"><img src="images/logo.png" height="60px"></div>
+<nav>
+<ul>
+<li><a href="mavunoplus.html">Home</a></li>
+<li><a href="#aboutSection">About</a></li>
+<li><a href="#TheServices">Services</a></li>
+<li><a href="#FeaturedCategories">Categories</a></li>
+<li><a href="#contactsSection">Contacts</a></li>
+</ul>
+</nav>
+<div class="search-box" id="pageSearch">
+<input type="text" placeholder="Search..." />
+</div>
+</header>
+
+
+
+
+
+
+<div class="slider animate__animated animate__fadeInUp">
+<div class="slides" id="slideContainer">
+<img src="images/mavuno motors-trial.png"/>
+<img src="images/mavuno motors.png" />
+<img src="images/motor2mavuno.png" />
+<img src="images/mavuno motors.png" />
+<img src="images/motor2mavuno.png" />
+<img src="images/mavuno motors.png" />
+<img src="images/motor2mavuno.png" />
+<img src="images/mavuno motors.png" />
+<img src="images/motor2mavuno.png" />
+<img src="images/mavuno motors.png" />
+
+</div>
+<div class="controls">
+<button onclick="moveSlide(-1)">&#10094;</button>
+<button onclick="moveSlide(1)">&#10095;</button>
+</div>
+</div>
+
+
+<div id="TheServices">
+<section id="formSection" class="animate__animated">
+<div class="container my-5">
+<h2 class="fw-bold mb-3">100% Genuine Product Served</h2>
+<p class="text-muted mb-4">Select Service List Items You Want to be delivered to you</p>
+<form>
+<div class="form-row-equal">
+<div class="form-col">
+<label class="form-label mt-3">Select Service</label>
+<select class="form-select">
+<option selected disabled>Choose a service</option>
+<option>Delivery</option>
+<option>Pickup</option>
+<option>Courier</option>
+</select>
+<label class="form-label mt-3">Sender Name</label>
+<input type="text" class="form-control" placeholder="Enter sender name">
+<label class="form-label mt-3">Sender Mobile Number</label>
+<input type="text" class="form-control" placeholder="Enter sender mobile">
+<label class="form-label mt-3">Sender Address</label>
+<input type="text" class="form-control" placeholder="Enter sender address">
+</div>
+<div class="form-col">
+<label class="form-label mt-3">Receiver Name</label>
+<input type="text" class="form-control" placeholder="Enter receiver name">
+<label class="form-label mt-3">Receiver Mobile Number</label>
+<input type="text" class="form-control" placeholder="Enter receiver mobile">
+<label class="form-label mt-3">Receiver Address</label>
+<input type="text" class="form-control" placeholder="Enter receiver address">
+<label class="form-label mt-3">List Items You Want</label>
+<textarea class="form-control" rows="5" placeholder="Enter items"></textarea>
+</div>
+</div>
+<div class="text-center mt-4">
+<button type="submit" class="btn btn-primary px-5 py-2">Submit</button>
+</div>
+</form>
+</div>
+</section>
+</div>
+
+<!-- <div class="maneno" style="background-color: #8bc28b; color:white; text-align: center;">
+<h1>Enjoy Your Own Genuine Web Masterpiece & Delivery Services</h1>
+<p>MavunoPlus delivers fresh food, essential groceries, and everyday non-food items anywhere in Tanzania – quickly, safely, and affordably</p>
+
+</div> -->
+
+<div class="hero-banner" id="FeaturedCategories">
+    <h1>Enjoy Your Own Genuine Web Masterpiece & Delivery Services</h1>
+    <p>
+        MavunoPlus delivers fresh food, essential groceries, and everyday non-food items anywhere in Tanzania – quickly, safely, and affordably
+    </p>
+</div>
+
+
+
+<!--Featured Category section-->
+<div class="featured_category" style="text-align: center; padding-top: 10px;">
+<h2 class="mb-4 fw-bold">Featured Categories</h2>
+<div class="categories d-flex flex-wrap justify-content-center gap-4">
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/Dairy.png" alt="Nyama na Maziwa" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2">Nyama na Maziwa</div>
+                </div>
+
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/Fruits.png" alt="Matunda" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2">Matunda</div>
+                </div>
+
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/Vagetables.png" alt="MbogaMboga" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2">MbogaMboga</div>
+                </div>
+
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/Fish.png" alt="Samaki" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2">Samaki</div>
+                </div>
+
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/mahindi.png" alt="Nafaka" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2">Nafaka</div>
+                </div>
+
+                <div class="category text-center">
+                    <div class="icon">
+                        <img src="images/Spices.png" alt="Viungo" style="width:80px;">
+                    </div>
+                    <div class="label fw-bold mt-2" id="aboutSection">Viungo</div>
+                </div>
+            </div>
+</div>
+
+<!--End of featured category section-->
+<section class="animate__animated my-5">
+<div class="container" >
+<div class="about-content row" >
+  <!-- Row 1: About Us + Motorcycle Delivery -->
+  <div class="col-md-6">
+    <div class="about-img-container mb-4">
+      <img src="images/mavuno motors.png" alt="Motorcycle Delivery" class="about-img animate__animated animate__fadeInLeft">
+    </div>
+  </div>
+  <div class="about-text col-md-6 d-flex flex-column justify-content-center">
+    <h2 class="fw-bold">About Us</h2>
+    <p class="text-muted"> At MavunoPlus, we make shopping easy, convenient, and reliable. We deliver fresh fruits, vegetables, dairy, meat, and poultry straight from trusted farms, alongside a wide range of groceries and everyday non-food essentials, all in one order. Our fast and dependable delivery ensures your items reach you safely and on time, while secure digital payment options make checkout simple and worry-free. By connecting local farmers and vendors to customers, we support communities and fair trade, all while embracing eco-friendly delivery practices to reduce waste and protect the environment.</p>
+  </div>
+
+  <!-- Row 2: Why Choose Us + Slide -->
+  <div class="about-text col-md-6 mt-5 d-flex flex-column justify-content-center">
+    <h3 class="fw-bold">Why Choose Us</h3>
+    <p class="why-text"> There’s a reason why thousands of customers and vendors trust MavunoPlus. We go beyond delivery — we bring convenience, quality, and impact to your doorstep. Every product we deliver is carefully sourced from reliable farmers and suppliers, ensuring freshness and authenticity. Our platform makes ordering simple, payments secure, and deliveries fast and eco-friendly. By choosing MavunoPlus, you’re not just getting your essentials quickly — you’re also supporting local farmers, empowering youth, and contributing to a cleaner, more sustainable Tanzania.</p>
+  </div>
+  <div class="col-md-6 mt-5">
+    <div class="why-slide">
+      <div class="why-slides" id="whySlideContainer">
+        <img src="images/mavuno motors.png" alt="Reason 1">
+        <img src="images/logo.png" alt="Reason 2">
+        <img src="images/mavuno motors.png" alt="Reason 3">
+        <img src="images/logo.png" alt="Reason 4">
+        <img src="images/mavuno motors.png" alt="Reason 5">
+        <img src="images/motor2mavuno.png" alt="Reason 6">
+        <img src="images/mavuno motors.png" alt="Reason 7">
+        <img src="images/motor2mavuno.png" alt="Reason 8">
+        <img src="images/mavuno motors.png" alt="Reason 9">
+        <img src="images/logo.png" alt="Reason 10">
+      </div>
+      <div class="why-controls">
+        <button onclick="moveWhySlide(-1)">&#10094;</button>
+        <button onclick="moveWhySlide(1)">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<section id="partnersSection" class="animate__animated my-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="fw-bold">Our Partners</h2>
+        <p class="text-muted"> MavunoPlus works hand in hand with a network of trusted partners who share our vision of building a more connected, sustainable, and efficient delivery ecosystem in Tanzania. Our partners include smallholder farmers, local producers, wholesalers, retailers, logistics providers, and technology innovators who make it possible to deliver quality food and non-food products to every customer. Through these collaborations, we ensure consistent supply, fair market access, and shared growth that uplifts communities while promoting a greener and more inclusive economy</p>
+      </div>
+      <div class="col-md-6 d-flex flex-wrap gap-4 justify-content-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" style="width:120px; height:auto;">
+        <img src="images/logo.png" style="width:200px; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" style="width:120px; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" style="width:120px; height:auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="startTodaySection" class="animate__animated my-4" style="background-color: #8bc28b;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <video controls style="width:100%; border-radius:10px; padding-top: 25px;" autoplay muted playsinline loop>
+          <source src="images/maize.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center" style="color:#fff" >
+        <h2 class="fw-bold">What Are You Waiting For?<br>Start It Today</h2>
+        <p class="text-muted" style="color:#fff !important"> What are you waiting for? Join the MavunoPlus movement today and experience the easiest, fastest, and most reliable way to get your food and essentials delivered anywhere in Tanzania. Whether you’re shopping for fresh produce, household items, or everyday necessities — we’ve got you covered. Start your order now and enjoy quality, convenience, and impact with every delivery. With MavunoPlus, it’s not just shopping — it’s a smarter way of living.</p>
+        <button class="btn btn-primary mt-3 px-4 py-2">Get Started</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ourTeam" class="animate__animated my-5">
+  <div class="container text-center">
+    <h2 class="fw-bold">Our Team</h2>
+    <p class="text-muted mb-4">Behind MavunoPlus is a passionate team of innovators, agripreneurs, and community builders committed to transforming how Tanzania shops and connects with local producers. Our team brings together expertise in agribusiness, technology, logistics, and marketing — all working in harmony to ensure that every delivery is fast, reliable, and meaningful. We believe in teamwork, transparency, and a shared mission to create opportunities for farmers, empower youth, and make quality products accessible to every household across the country</p>
+
+    <div class="row justify-content-center gap-4 mt-4">
+
+      <div class="col-md-3 col-6">
+        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328e1210?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+        <h5 class="fw-semibold">Leonard Osward</h5>
+        <p class="text-muted small"> our visionary lead, oversees operations and strategic growth, ensuring that MavunoPlus continues to connect people, products, and opportunities across Tanzania.</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+        <h5 class="fw-semibold"> Joyce Mwakalinga</h5>
+        <p class="text-muted small"> our Marketing Lead, drives brand communication and customer engagement, making MavunoPlus a trusted name in delivery and agribusiness.</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+        <h5 class="fw-semibold"> Jimmy Boaz</h5>
+        <p class="text-muted small"> our IT Specialist, ensures smooth digital operations, system reliability, and user-friendly experiences.</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+        <h5 class="fw-semibold">Upendo Jacob</h5>
+        <p class="text-muted small">our Accountant, manages finances with transparency and precision,ensuring sustainability and accountability in everything we do</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500" class="rounded-circle mb-2" style="width:100px; height:100px; object-fit:cover;">
+        <h5 class="fw-semibold">David Wilson</h5>
+        <p class="text-muted small">Field Supervisor</p>
+      </div>
+
+    </div>
+    <p> Behind MavunoPlus is a passionate team of innovators, agripreneurs, and community builders committed to transforming how Tanzania shops and 
+connects with local producers. Our team brings together expertise in agribusiness, technology, logistics, and marketing — all working in harmony to 
+ensure that every delivery is fast, reliable, and meaningful. We believe in teamwork, transparency, and a shared mission to create opportunities for 
+farmers, empower youth, and make quality products accessible to every household across the country</p>
+  </div>
+</section>
+
+</section>
+
+<!-- Start Today Section inserted here -->
+
+
+
+<script>
+const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');}});},{threshold:0.1});
+document.querySelectorAll('section').forEach(s=>observer.observe(s));
+</script>
+
+<!-- <section id="partnersSection" class="animate__animated my-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="fw-bold">Our Partners</h2>
+        <p class="text-muted">We proudly collaborate with trusted partners who help us deliver exceptional service and unmatched reliability to our customers.</p>
+      </div>
+      <div class="col-md-6 d-flex flex-wrap gap-4 justify-content-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Partner 1" style="width:120px; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_2015_logo.svg" alt="Partner 2" style="width:120px; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Partner 3" style="width:120px; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Partner 4" style="width:120px; height:auto;">
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<footer class="m-0" id="footer-section"style="background:#8bc28b; padding:25px 0 0 0; color:#fff;">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-4 mb-4">
+        <h4 class="fw-bold" id="contactsSection">About us <span style="display:inline-block; width:20px; height:3px; background:#fff; vertical-align: middle; margin-left:10px;"></span></h4>
+        <p style="color:#f1f1f1;"> At MavunoPlus, we make shopping easy, convenient, and reliable. We deliver fresh fruits, vegetables, dairy, meat, and poultry straight from trusted farms, alongside a wide range of groceries and everyday non-food essentials, all in one order. Our fast and dependable delivery ensures your items reach you safely and on time, while secure </p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h4 class="fw-bold">Get in Touch <span style="display:inline-block; width:20px; height:3px; background:#fff; vertical-align: middle; margin-left:10px;"></span></h4>
+        <p><strong>Address:</strong> Block Q, Soweto-Mbeya</p>
+        <p><strong>Phone:</strong> +255 710 513 635 (Office)<br>+255 768 613 635 (CEO)</p>
+        <p><strong>Email:</strong> mavunoplus.tz@gmail.com</p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h4 class="fw-bold">Social Media <span style="display:inline-block; width:20px; height:3px; background:#fff; vertical-align: middle; margin-left:10px;"></span></h4>
+        <p>MavunoPlus</p>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-youtube" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-google" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-facebook" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-dribbble" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-twitter" style="color:#fff;"></i></span>
+          <span class="p-2 rounded-circle" style="background:#333;"><i class="bi bi-instagram" style="color:#fff;"></i></span>
+        </div>
+      </div>
+
+    </div>
+     
+  </div>
+
+ <div style="width:100%; background:#222; color:#fff; text-align:center; padding:15px 0; font-weight:bold;">Copyright © 2025</div>
+
+</footer>
+
+</body>
+<script>
+const slider = document.getElementById('slideContainer');
+const slides = Array.from(slider.children);
+let currentIndex = 0;
+function showSlide(index){ slider.style.transition='transform 0.7s ease'; slider.style.transform=`translateX(-${index*100}%)`;}
+function nextSlide(){ currentIndex=(currentIndex+1)%slides.length; showSlide(currentIndex);}
+function prevSlide(){ currentIndex=(currentIndex-1+slides.length)%slides.length; showSlide(currentIndex);}
+let interval=setInterval(nextSlide,3000);
+function moveSlide(dir){clearInterval(interval); if(dir===1) nextSlide(); else prevSlide(); interval=setInterval(nextSlide,3000);}
+showSlide(currentIndex);
+</script>
+
+<script>
+function searchPage() {
+    let text = document.getElementById("pageSearch").value.toLowerCase();
+    let bodyText = document.body.innerHTML;
+
+    // Remove old highlights
+    document.body.innerHTML = bodyText.replace(/<span class="highlight">([^<]*)<\/span>/gi, "$1");
+
+    if (text.trim() === "") return;
+
+    // Highlight matches
+    let regex = new RegExp(text, "gi");
+    document.body.innerHTML = document.body.innerHTML.replace(regex, function(match) {
+        return '<span class="highlight">' + match + '</span>';
+    });
+
+    // Scroll to the first result
+    let firstHighlight = document.querySelector(".highlight");
+    if (firstHighlight) {
+        firstHighlight.scrollIntoView({behavior: "smooth", block: "center"});
+    }
+}
+</script>
+
+
+<script>
+const whySlider = document.getElementById('whySlideContainer');
+const whySlides = Array.from(whySlider.children);
+let whyIndex = 0;
+function showWhySlide(index){whySlider.style.transition='transform 0.7s ease';whySlider.style.transform=`translateX(-${index*100}%)`;}
+function nextWhySlide(){whyIndex=(whyIndex+1)%whySlides.length;showWhySlide(whyIndex);}
+function prevWhySlide(){whyIndex=(whyIndex-1+whySlides.length)%whySlides.length;showWhySlide(whyIndex);}
+let whyInterval=setInterval(nextWhySlide,3000);
+function moveWhySlide(dir){clearInterval(whyInterval);if(dir===1) nextWhySlide(); else prevWhySlide();whyInterval=setInterval(nextWhySlide,3000);}
+showWhySlide(whyIndex);
+</script>
+</html>
